@@ -1,0 +1,90 @@
+Notes for my Professional website
+======
+
+QUESTIONS
+
+what even is a reducer?
+======
+A reducer is a function used to manage state across multiple react-components
+In order to [fw a reducer] you need to dispatch an action, which has a data 
+payload (a string, a number, an object, &c.), and an action description (to 
+uniquely identify it.)
+
+what even is a saga
+======
+saga is a thread in our react-app that is intended to deal solely w/ side-
+effects.
+
+a function has a side effect if it changes some state variable outside of the
+functions local environment, or rather that the function has an observable
+effect outside of returning a value to what invoked the function.
+e.g.
+modifying a non-local variable
+modifying a mutable argument passed by reference (??)
+
+saga is a middleware tool within redux that can be called from any components
+we make it available to, which allows us to dispatch redux actions, 
+
+what even is axios / AJAX?
+======
+
+
+
+
+GOALS
+======
+
+Accessibility
+    // double-check all of your colors!
+
+Persistent Nav-bar
+    // --> routing to all of these things below!
+      (xtra fancy touch changing document.title based on section)
+    // useScrollTrigger()???
+    //
+    // Responsive Design -->
+
+        Fluid grids
+        Scaling image
+
+        Individual Links when big enough,
+        Hamburger popup-menu when too small
+
+
+    // Hamburger:   Display name of region you're in
+    // BreadCrumb Links:       Highlight currently selected link when there
+                    (upon click or when you're in the right region)
+
+About me / elevator pitch
+    // Figure 1. Obligatory Web-Dev Circle Headshot
+    // Test-driven development
+    // Communication skills
+    // Experience working with lots of different people
+    // Customer service, Welding, Farming, Programming
+    // 
+
+Portfolio listings
+    // AKR-Portal
+    // PowerliftsDB
+    // (Then you need to make new stuff doggy...)
+
+Linkz
+    // github
+    // linkedin
+    // Soundcloud??
+
+(Pics)
+    // These are just some things that I really like!
+
+Friends
+    // Emma
+    // Lizzy
+    // Victor
+    // Hans
+    // Alex
+
+Email form
+    // fill out form
+    // cancel destorys information in state, 
+    // send posts to server (which then sends actual email)
+    // snack-bar pops up when server confirms that email was sent.

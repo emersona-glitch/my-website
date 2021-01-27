@@ -1,0 +1,12 @@
+.ContactMe {
+  position: fixed;
+  z-index: 1;
+  margin: 20px;
+  /* padding: 5px; */
+  bottom: 0;
+  right: 0;
+}
+
+#contact-dialog {
+  width:  400px;
+}
