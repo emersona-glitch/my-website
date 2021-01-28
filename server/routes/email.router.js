@@ -21,7 +21,6 @@ router.post('/', (req, res) => {
   // so don't forget that proxy if you're starting from scratch :)
 
   console.log('made it to email router yeeeet!', req.body.name);
-
   // send back a confirmation that our email has been successfully sent!
   res.sendStatus(201);
 
