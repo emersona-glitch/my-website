@@ -5,7 +5,9 @@ function Links() {
 
 
   return (
-    <div className='Links'>
+    <div 
+    className='links'
+    name='links'>
       Here are links to other places that I'm present on the web
     </div>
   );

@@ -5,7 +5,9 @@ function Gallery() {
 
 
   return (
-    <div className='Gallery'>
+    <div 
+    className='gallery'
+    name='gallery'>
       Here are some pictures that I really like
     </div>
   );

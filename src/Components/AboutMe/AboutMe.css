@@ -1,4 +1,8 @@
-.AboutMe {
+.about-me {
   padding: 400px;
   background-color: beige;
+}
+
+#selfie {
+  border-radius: 50%;
 }

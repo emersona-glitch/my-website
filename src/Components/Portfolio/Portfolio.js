@@ -5,7 +5,8 @@ function Portfolio() {
 
 
   return (
-    <div className='Portfolio'>
+    <div className='portfolio'
+    name="portfolio">
       Here are all the projects I've made!
     </div>
   );

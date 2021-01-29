@@ -1,7 +1,7 @@
-// import logo from './logo.svg';
 import React from 'react';
 import './App.css';
 
+// all of our children components
 import NavBar from '../NavBar/NavBar';
 import Greetings from '../Greetings/Greetings'
 import AboutMe from '../AboutMe/AboutMe';
@@ -11,17 +11,30 @@ import Friends from '../Friends/Friends';
 import Gallery from '../Gallery/Gallery';
 import ContactMe from '../ContactMe/ContactMe';
 
+// This is a function component!
+// you can tell because we're declaring a function ;)
+
+// if you're used to class components, you can think of
+// function components as representing just the render() portion
+// of a class component
 function App() {
 
+  // how do we do a componentDidMount?
+
+
+  // In order to have cleaner code, I'm only using App.js
+  // as the root of our "component tree," so as you'll see
+  // below, the only thing going on inside App() is
+  // 
   return (
-    // ThemeProvider
+    // Do we want to use ThemeProvider?
+    
     // Router??
-
-
+    
     <div className="App">
 
+
       <NavBar />
-      
       <Greetings />
       <AboutMe />
       <Portfolio />
@@ -30,23 +43,6 @@ function App() {
       <Gallery />
 
       <ContactMe />
-
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-                </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-
-      {/* <NavBar/> */}
 
     </div>
   );

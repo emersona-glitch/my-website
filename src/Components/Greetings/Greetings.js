@@ -5,7 +5,9 @@ function Greetings() {
 
 
   return (
-    <div className='Greetings'>
+    <div
+    className='greetings'
+    name='greetings'>
       Greetings
     </div>
   );

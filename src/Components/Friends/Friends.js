@@ -5,7 +5,9 @@ function Friends() {
 
 
   return (
-    <div className='Friends'>
+    <div
+    className='friends'
+    name='friends'>
       Here are some friends of mine you might like to know about
     </div>
   );

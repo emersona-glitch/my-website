@@ -1,10 +1,14 @@
 import React from 'react';
 
+import * as Scroll from 'react-scroll';
+import { Link } from 'react-scroll';
+
 import './NavBar.css';
 import {
   AppBar,
   // Typography,
   IconButton,
+  Button,
   Toolbar,
   // Icons,
 } from '@material-ui/core'
@@ -18,9 +22,56 @@ function Nav() {
     <div className='NavBar'>
       <AppBar>
         <Toolbar>
-          <IconButton>
+
+        <Link
+        to="about-me"
+        smooth={true}>
+          <Button>
+            About Me
+          </Button>
+        </Link>
+
+
+        <Link
+        to="portfolio"
+        smooth={true}>
+          <Button
+          >
+            Portfolio
+          </Button>
+        </Link>
+
+        <Link
+        to="links"
+        smooth={true}>
+          <Button>
+            Links
+          </Button>
+        </Link>
+
+        <Link
+        to="friends"
+        smooth={true}>
+          <Button>
+            Friends
+          </Button>
+        </Link>
+
+        <Link
+        to="gallery"
+        smooth={true}>
+          <Button>
+            Gallery
+          </Button>
+        </Link>
+
+        {/* <Button>
+          Contact
+        </Button> */}
+
+          {/* <IconButton>
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
 {/*           
           <Typography>
             You are here:

@@ -87,4 +87,9 @@ Email form
     // fill out form
     // cancel destorys information in state, 
     // send posts to server (which then sends actual email)
+    // HOC loading page?
     // snack-bar pops up when server confirms that email was sent.
+
+    media queries
+    flexbox
+    breakpoint
