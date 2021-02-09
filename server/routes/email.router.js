@@ -1,5 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const auth = require('./Gmail_config/auth.config');
+const myEmail = require('./Gmail_config/my.secret.email');
 
 // sets up an instance of express
 const router = express.Router()
@@ -13,17 +15,7 @@ const router = express.Router()
 // this was because I needed to set myself up as a test user, as I had
 // mistakenly assumed that I, being the developer, would have access to my own
 // program.
-const newClientId = '545527742644-mvtju30a6krfktk5oq6i37740m344ube.apps.googleusercontent.com';
-const newClientSecret = 'zlm3B3IuWXcQXVtXa6u2xRbh';
-const refreshToken = '1//04YFyJ7k8YfflCgYIARAAGAQSNwF-L9IrbIw4TGzu2QFYy-nC8IVG-iBlotA15nGE1m9w4hCYayxE4365H_8g7fT2kiBdjunO6Wk';
 
-const auth = {
-  type: 'oauth2',
-  user: 'emerson.aagaard@gmail.com',
-  clientId: newClientId,
-  clientSecret: newClientSecret,
-  refreshToken: refreshToken
-};
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -45,7 +37,7 @@ router.post('/', async (req, res) => {
     const messageReturn = await transporter.sendMail({
       from_name: req.body.name,
       from_address: req.body.email,
-      to:   'emerson.aagaard@gmail.com',
+      to:   myEmail,
       text: req.body.message,
       subject: `${req.body.name} would like to contact you`
     })

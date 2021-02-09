@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 notes.txt
+
+# gmail Oauth and my address
+/server/routes/Gmail_config
