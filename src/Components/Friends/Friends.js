@@ -11,5 +11,7 @@ function Friends() {
       Here are some friends of mine you might like to know about
     </div>
   );
+
+  // Victor, Amy, Lizzie, Emma, Hans, Alex, 
 }
 export default Friends;

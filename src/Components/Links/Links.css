@@ -1,4 +1,7 @@
 .links {
-  padding: 400px;
+  /* padding: 400px; */
+  width: 100%;
   background-color:antiquewhite;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }

@@ -10,6 +10,7 @@ import Links from '../Links/Links';
 import Friends from '../Friends/Friends';
 import Gallery from '../Gallery/Gallery';
 import ContactMe from '../ContactMe/ContactMe';
+import Footer from '../Footer/Footer'
 
 // This is a function component!
 // you can tell because we're declaring a function ;)
@@ -41,6 +42,7 @@ function App() {
       <Links />
       <Friends />
       <Gallery />
+      <Footer />
 
       <ContactMe />
 

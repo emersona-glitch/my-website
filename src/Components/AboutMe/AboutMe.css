@@ -1,8 +1,13 @@
 .about-me {
-  padding: 400px;
+  padding-top: 200px;
+  padding-bottom: 200px;
   background-color: beige;
 }
 
 #selfie {
   border-radius: 50%;
+  /* float: right; */
+  /* display: inline-flexbox; */
+  max-width: 100%;
+  height: auto;
 }

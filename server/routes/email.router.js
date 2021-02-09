@@ -4,58 +4,66 @@ const nodemailer = require('nodemailer');
 // sets up an instance of express
 const router = express.Router()
 
-const transporter = nodemailer.createTransport({
-  host: 'smtp.ethereal.email',
-  port: 587,
-  auth: {
-      user: 'darion.kris@ethereal.email',
-      pass: 'N2uZAydk2ZDs2DcHKC'
-  }
-});
+// retriving these codes involves going to google's API developer console
+// and doing a bunch of fancy stuff.
+// I simply followed this guys instructions:
+// https://levelup.gitconnected.com/multi-purposes-mailing-api-using-nodemailer-gmail-google-oauth-28de49118d77
+// N.B. When you get to the part where you need to authorize the gmail API,
+// I ran into a problem where I wasn't being allowed to do so, 
+// this was because I needed to set myself up as a test user, as I had
+// mistakenly assumed that I, being the developer, would have access to my own
+// program.
+const newClientId = '545527742644-mvtju30a6krfktk5oq6i37740m344ube.apps.googleusercontent.com';
+const newClientSecret = 'zlm3B3IuWXcQXVtXa6u2xRbh';
+const refreshToken = '1//04YFyJ7k8YfflCgYIARAAGAQSNwF-L9IrbIw4TGzu2QFYy-nC8IVG-iBlotA15nGE1m9w4hCYayxE4365H_8g7fT2kiBdjunO6Wk';
 
+const auth = {
+  type: 'oauth2',
+  user: 'emerson.aagaard@gmail.com',
+  clientId: newClientId,
+  clientSecret: newClientSecret,
+  refreshToken: refreshToken
+};
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: auth
+});
 
 // req = request    i.e. req.body for our purposes
 // res = response   i.e. HTTP response status codes
 // :)
 
 // we use the post method to post data to an endpoint
-// which in this case, will be the information
-// that we collected from the client 
-
+// which in this case, will be the gmail
+// api, accessed via nodemailer.
 
 router.post('/', async (req, res) => {
 
-  console.log('made it to email router yeeeet!', req.body.message);
-  
-  // let info = await transporter.sendMail({
-  //   from: '"Fred Foo 👻" <foo@example.com>',  // sender address
-  //   to: 'darion.kris@ethereal.email',        // list of receivers
-  //   subject: "Hello :)", // Subject line
-  //   text: req.body.message, // plain text body
-  //   html: `<p>${req.body.message}</p>`, // html body
-  // });
-  
-  const messageReturn = await transporter.sendMail({
-    from_name: req.body.name,
-    from_address: req.body.email,
-    // to:   'emerson.aagaard@gmail.com',
-    to:   'darion.kris@ethereal.email',
-    text: req.body.message,
-    subject: 'Hi from the place!'
-  });
+  try {
 
-  if (messageReturn.messageId) {
-    console.log('email sent:', messageReturn.messageId)
-    res.sendStatus(201);
-  } else {
+    const messageReturn = await transporter.sendMail({
+      from_name: req.body.name,
+      from_address: req.body.email,
+      to:   'emerson.aagaard@gmail.com',
+      text: req.body.message,
+      subject: `${req.body.name} would like to contact you`
+    })
+    
+    if (messageReturn.messageId) {
+      console.log('email sent:', messageReturn.messageId)
+      res.sendStatus(201);
+    } else {
+      res.sendStatus(500);
+    }
+
+  } catch (error) {
+    console.log('Oh boy we got an error: ', error);
     res.sendStatus(500);
   }
-
-  // res.sendStatus(201);
-
-  // I had an issue getting this console log to show
-  // when sending the post request from my client
-  // and I realized: I was missing a proxy port address in
+  
+  // when I first set this up,
+  // I was missing a proxy port address in
   // my package.json file (React uses 3000 by default, but
   // in my server.js file I have the port set to 5000),
   // so don't forget that proxy if you're starting from scratch :)
