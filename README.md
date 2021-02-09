@@ -21,4 +21,6 @@ to understand the world (c.f. Wittgenstein), and it can be really messy when we'
 about concrete, reproducible, and/or technical things without some sort of common language.
 Thanks to all of the great writers of documentation out there who have made this an easier situation!!
 
+talk a little bit about security and git / github
+
 More to come soon ;-)
