@@ -29,13 +29,11 @@ function ContactMe(props) {
 
   const [snackOpen, setSnackOpen] = useState(false);
 
-
-
-  // const [complete, setComplete] = useState({
-  //   name: true,
-  //   email: true,
-  //   message: true
-  // });
+  const [complete, setComplete] = useState({
+    name: true,
+    email: true,
+    message: true
+  });
   
   const [contact, setContact] = useState({
     name: '',
@@ -44,7 +42,6 @@ function ContactMe(props) {
   });
   
   const updateContact = event => {
-    // console.log(`${event.target.name}: ${event.target.value}`);
     setContact({
       ...contact,
       [event.target.name]: event.target.value
@@ -53,6 +50,11 @@ function ContactMe(props) {
   
   const handleClickOpen = () => {
     setOpen(true);
+    setComplete({
+      name: true,
+      email: true,
+      message: true
+    });
   };
 
   const handleClickLoading = () => {
@@ -60,24 +62,33 @@ function ContactMe(props) {
   }
   
   const handleSend = () => {
-    // check to make sure that all info was input
-    // if not, display an alert
+    
     if (contact.name === '' || contact.email === '' || contact.message === '') {
       
-      // set blank text-fields to red
+      setComplete({
+        name: (contact.name !== ''),
+        email: (contact.email !== ''),
+        message: (contact.message !== '')
+      })
 
     } else {
-      // if all the info was input,
-      // send contact information to our Saga!      
+      
+      setOpen(false);
 
-      setSnackOpen(true);
+      // commented out for testing
 
       // props.dispatch({
       //   type: 'SEND_EMAIL',
       //   payload: contact
       // })
 
-      setOpen(false);
+      setLoadingOpen(true);
+      setContact({
+        name: '',
+        email: '',
+        message: ''
+      });
+
     }
   };
 
@@ -85,6 +96,21 @@ function ContactMe(props) {
     setSnackOpen(false);
   }
   
+  const handleLoadingClose = () => {
+    setLoadingOpen(false);
+    setSnackOpen(true);
+  }
+
+  const handleEmailSuccess = () => {
+    setLoadingOpen(false);
+    setSnackOpen(true);
+  }
+
+  const handleEmailFailure = () => {
+    setLoadingOpen(false);
+    setSnackOpen(true);
+  }
+
   const handleCancel = () => {
     setContact({
       name: '',
@@ -96,11 +122,6 @@ function ContactMe(props) {
 
   return (
     <div className='ContactMe'>
-      
-      {/* <BallBeat
-          color={'#123abc'}
-          loading={true}
-        /> */}
 
       <Button
       variant="contained"
@@ -113,6 +134,14 @@ function ContactMe(props) {
       onClick={handleClickLoading}>
         test loading
       </Button>
+
+      <Dialog open={loadingOpen} onClose={handleLoadingClose}>
+        <DialogContent id='loading-dialog'>
+            <Typography>
+              Waiting for confirmation from server that your email was sent...
+            </Typography>
+        </DialogContent>
+      </Dialog>
 
       <Dialog open={open} onClose={handleClickOpen}>
         <DialogContent id="contact-dialog">
@@ -128,20 +157,24 @@ function ContactMe(props) {
           label="Name"
           name="name"
           className="text-field"
-          helperText="please complete this field"
+          helperText={complete.name ? '' : "please complete this field"}
+          error={complete.name !== true}
           />
           <br/>
           <br/>
+
           <TextField
           onChange={updateContact}
           fullWidth
           label="Email"
           name="email"
           className="text-field"
-          helperText="please complete this field"
+          helperText={complete.email ? '' : "please complete this field"}
+          error={complete.email !== true}
           />
           <br/>
           <br/>
+
           <TextField
           onChange={updateContact}
           fullWidth
@@ -150,7 +183,8 @@ function ContactMe(props) {
           label="Message"
           name="message"
           className="text-field"
-          helperText="please complete this field"
+          helperText={complete.message ? '' : "please complete this field"}
+          error={complete.message !== true}
           />
 
         </DialogContent>
