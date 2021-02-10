@@ -4,8 +4,8 @@ import selfie from './selfie.jpg';
 import {
   Typography,
   Grid,
-  Container,
-  Paper,
+  // Container,
+  // Paper,
 } from '@material-ui/core';
 
 function AboutMe() {
@@ -21,7 +21,7 @@ function AboutMe() {
         <Grid item xs={2}></Grid>
 
         <Grid item xs={8} sm={3}>
-            <img id='selfie' src={selfie}/>
+            <img id='selfie' alt="Me being handsome" src={selfie}/>
         </Grid>
         
         <Grid item xs={1} sm={0}></Grid>

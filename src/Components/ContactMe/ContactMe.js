@@ -11,15 +11,29 @@ import {
   DialogActions,
   Typography,
   TextField,
+  Snackbar,
 } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert'
+// import
 
+// function Alert(props) {
+//   return <MuiAlert elevation={6} variant="filled" {...props} />;
+// }
 
 function ContactMe(props) {
   
-  const [open, setOpen] = React.useState(false);
-  
-  // const [name, setName] = useState('');
 
+  // to open our dialogue
+  const [open, setOpen] = useState(false);
+
+  const [snackOpen, setSnackOpen] = useState(false);
+
+  // const [complete, setComplete] = useState({
+  //   name: true,
+  //   email: true,
+  //   message: true
+  // });
+  
   const [contact, setContact] = useState({
     name: '',
     email: '',
@@ -42,20 +56,28 @@ function ContactMe(props) {
     // check to make sure that all info was input
     // if not, display an alert
     if (contact.name === '' || contact.email === '' || contact.message === '') {
+      
       // turn this into an alert or whatever
       console.log('you haven\'t filled everything out!')
+
     } else {
       // if all the info was input,
       // send contact information to our Saga!      
 
-      props.dispatch({
-        type: 'SEND_EMAIL',
-        payload: contact
-      })
+      setSnackOpen(true);
+
+      // props.dispatch({
+      //   type: 'SEND_EMAIL',
+      //   payload: contact
+      // })
 
       setOpen(false);
     }
   };
+
+  const handleSnackClose = () => {
+    setSnackOpen(false);
+  }
   
   const handleCancel = () => {
     setContact({
@@ -74,6 +96,12 @@ function ContactMe(props) {
         Contact Me :-|
       </Button>
 
+      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleSnackClose}>
+      <Alert onClose={handleSnackClose} severity="success">
+          Email sent successfully!
+        </Alert>
+      </Snackbar>
+
       <Dialog open={open} onClose={handleClickOpen}>
         <DialogContent id="contact-dialog">
           {/* Name, Your Email, Message */}
@@ -88,6 +116,7 @@ function ContactMe(props) {
           label="Name"
           name="name"
           className="text-field"
+          helperText="please complete this field"
           />
           <br/>
           <br/>
@@ -97,6 +126,7 @@ function ContactMe(props) {
           label="Email"
           name="email"
           className="text-field"
+          helperText="please complete this field"
           />
           <br/>
           <br/>
@@ -108,6 +138,7 @@ function ContactMe(props) {
           label="Message"
           name="message"
           className="text-field"
+          helperText="please complete this field"
           />
 
         </DialogContent>

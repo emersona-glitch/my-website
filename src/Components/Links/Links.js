@@ -37,22 +37,22 @@ function Links() {
           <Grid item xs={6}>
             <Grid container>
               <Grid item xs={3}>
-                <a href='https://www.linkedin.com/in/emerson-aagaard/' target="_blank">
+                <a href='https://www.linkedin.com/in/emerson-aagaard/' target="_blank" rel="noreferrer">
                   <FontAwesomeIcon size='6x' icon={['fab', 'linkedin']}/>
                 </a>
               </Grid>
               <Grid item xs={3}>
-                <a href='https://github.com/emersona-glitch' target="_blank">
+                <a href='https://github.com/emersona-glitch' target="_blank" rel="noreferrer">
                   <FontAwesomeIcon size='6x' icon={['fab', 'github']}/>
                 </a>
               </Grid>
               <Grid item xs={3}>
-                <a href='https://soundcloud.com/emerson-aagaard' target="_blank">
+                <a href='https://soundcloud.com/emerson-aagaard' target="_blank" rel="noreferrer">
                   <FontAwesomeIcon size='6x' icon={['fab', 'soundcloud']}/>
                 </a>
               </Grid>
               <Grid item xs={3}>
-                <a href='https://bandcamp.com/emersona91' target="_blank">
+                <a href='https://bandcamp.com/emersona91' target="_blank" rel="noreferrer">
                   <FontAwesomeIcon size='6x' icon={['fab', 'bandcamp']}/>
                 </a>
               </Grid>

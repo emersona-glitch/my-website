@@ -12,6 +12,8 @@ import Gallery from '../Gallery/Gallery';
 import ContactMe from '../ContactMe/ContactMe';
 import Footer from '../Footer/Footer'
 
+// import Alert from '@material-ui/lab/Alert'
+
 // This is a function component!
 // you can tell because we're declaring a function ;)
 
@@ -36,6 +38,7 @@ function App() {
 
 
       <NavBar />
+      {/* <Alert severity="info">This is an info alert — check it out!</Alert> */}
       <Greetings />
       <AboutMe />
       <Portfolio />

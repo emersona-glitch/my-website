@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { 
+  // put, 
+  takeLatest
+} from 'redux-saga/effects';
 
 function* sendEmail(action) {
   try {
@@ -17,6 +20,7 @@ function* sendEmail(action) {
     
   }
 }
+
 
 function* confirmEmail(action) {
   try {
