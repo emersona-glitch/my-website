@@ -14,19 +14,24 @@ import {
   Snackbar,
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert'
-// import
+import EmailSuccess from './EmailSuccess';
 
-// function Alert(props) {
-//   return <MuiAlert elevation={6} variant="filled" {...props} />;
-// }
+import { BallBeat } from 'react-pure-loaders';
+// import { jsx } from '@emotion/react'
+
+
 
 function ContactMe(props) {
   
 
   // to open our dialogue
   const [open, setOpen] = useState(false);
+  
+  const [loadingOpen, setLoadingOpen] = useState(false);
 
   const [snackOpen, setSnackOpen] = useState(false);
+
+
 
   // const [complete, setComplete] = useState({
   //   name: true,
@@ -51,6 +56,10 @@ function ContactMe(props) {
   const handleClickOpen = () => {
     setOpen(true);
   };
+
+  const handleClickLoading = () => {
+    setLoadingOpen(true);
+  }
   
   const handleSend = () => {
     // check to make sure that all info was input
@@ -90,17 +99,23 @@ function ContactMe(props) {
 
   return (
     <div className='ContactMe'>
+      
+      <BallBeat
+          color={'#123abc'}
+          loading={true}
+        />
+
       <Button
       variant="contained"
       onClick={handleClickOpen}>
         Contact Me :-|
       </Button>
 
-      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleSnackClose}>
-      <Alert onClose={handleSnackClose} severity="success">
-          Email sent successfully!
-        </Alert>
-      </Snackbar>
+      <Button
+      variant="contained"
+      onClick={handleClickLoading}>
+        test loading
+      </Button>
 
       <Dialog open={open} onClose={handleClickOpen}>
         <DialogContent id="contact-dialog">
@@ -157,6 +172,14 @@ function ContactMe(props) {
           </Button>
         </DialogActions>
       </Dialog>
+
+      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleSnackClose}>
+        <Alert onClose={handleSnackClose} severity="success">
+          Email sent successfully!
+        </Alert>
+      </Snackbar>
+
+      {/* <EmailSuccess/> */}
 
     </div>
   )
