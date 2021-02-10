@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../Redux/mapStoreToProps';
 
 import './ContactMe.css';
-// import EmailForm from './EmailForm'
+
 import {
   Button,
   Dialog,
@@ -14,10 +14,8 @@ import {
   Snackbar,
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert'
-import EmailSuccess from './EmailSuccess';
 
-import { BallBeat } from 'react-pure-loaders';
-// import { jsx } from '@emotion/react'
+// import EmailSuccess from './EmailSuccess';
 
 
 
@@ -66,8 +64,7 @@ function ContactMe(props) {
     // if not, display an alert
     if (contact.name === '' || contact.email === '' || contact.message === '') {
       
-      // turn this into an alert or whatever
-      console.log('you haven\'t filled everything out!')
+      // set blank text-fields to red
 
     } else {
       // if all the info was input,
@@ -100,10 +97,10 @@ function ContactMe(props) {
   return (
     <div className='ContactMe'>
       
-      <BallBeat
+      {/* <BallBeat
           color={'#123abc'}
           loading={true}
-        />
+        /> */}
 
       <Button
       variant="contained"

@@ -1,6 +1,24 @@
 Notes for my Professional website
 ======
 
+
+open email dialog -- check!
+
+make sure all fields are filled -- 
+
+trigger loading component
+
+wait for email confirmation
+
+trigger snackbar (one for confirmed, 
+                  one for not confirmed)
+
+
+
+
+
+
+
 QUESTIONS
 
 what even is a reducer?
@@ -27,6 +45,7 @@ we make it available to, which allows us to dispatch redux actions,
 
 what even is axios / AJAX?
 ======
+
 
 
 
