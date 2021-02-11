@@ -21,12 +21,15 @@ function ContactMe(props) {
   const [open, setOpen] = useState(false);
   
   // state hook for whether or not or loading bar is open
-  const [loadingOpen, setLoadingOpen] = useState(false);
+  // const [loadingOpen, setLoadingOpen] = useState(props.store.confirm === 'waiting');
 
   // state hook for whether or not our snack bar is open!
   const [snackOpen, setSnackOpen] = useState(false);
 
+  const [snackSeverity, setSnackSeverity] = useState('success');
   
+  const [snackMessage, setSnackMessage] = useState('success');
+
   // state hook for whether the form has info in it
   // ( How can we combine this with the state hook below? )
   const [complete, setComplete] = useState({
@@ -64,9 +67,9 @@ function ContactMe(props) {
 
 
   // tell the loading bar to open
-  const handleClickLoading = () => {
-    setLoadingOpen(true);
-  }
+  // const handleClickLoading = () => {
+  //   setLoadingOpen(true);
+  // }
 
   
   // Upon form completion and clicking send button
@@ -100,7 +103,7 @@ function ContactMe(props) {
       })
 
       // open the loading bar
-      setLoadingOpen(true);
+      // setLoadingOpen(true);
 
       // clear state for next time 
       setContact({
@@ -124,7 +127,10 @@ function ContactMe(props) {
 
 
 const isLoading = () => {
-  return (props.store.confirm == 'waiting') 
+  // if (props.store.confirm === 'waiting') {
+  //   return false;
+  // }
+  return (props.store.confirm === 'waiting') 
 }
 
 // the loading bar should be open while this reducer is set to waiting
@@ -132,34 +138,52 @@ const isLoading = () => {
 // it gets sent anything else.
 
 
+
+
+
+  // !!!
   // A lot of the following seems very redundant!
+  // !!!
+
+
+
 
   // for closing the snackbar
   const handleSnackClose = () => {
+    
+    // close the snackbar:
     setSnackOpen(false);
+
+    // set confirm reducer to idle:
+    props.dispatch({type: 'SET_CONFIRMATION', payload: 'idle'});
+
   }
   
+
+
   // What to do when the loading bar closes
   const handleLoadingClose = () => {
     
+    console.log('closing the loading bar');
     // the loading bar closes itself, since its being-open
     // depends on the contents of props.store.confirm
 
-    // when the confirm reducer gets 
-    setSnackOpen(true);
 
+    // when the confirm reducer gets set to
+    // 201, we want to give our snackbar these settings:
+    if (props.store.confirm === 201) {
+      setSnackSeverity('success')
+      setSnackMessage('Your email has been sent!');
+    }
+    
+    // or if the confirm reducer gets set to
+    // 500, we want to give our snackbar these settings:
+    if (props.store.confirm === 500) {
+      setSnackSeverity('error')
+      setSnackMessage('I\'m so sorry, but it seems there was an error in sending your email!')
+    }
 
-  }
-
-  // what to do if we get a status: 201 from server
-  const handleEmailSuccess = () => {
-    setLoadingOpen(false);
-    setSnackOpen(true);
-  }
-
-  // what to do if we get a status: 500 from server
-  const handleEmailFailure = () => {
-    setLoadingOpen(false);
+    // and then we'll open the snackbar.
     setSnackOpen(true);
   }
 
@@ -183,7 +207,7 @@ const isLoading = () => {
         Contact Me
       </Button>
 
-      <Dialog open={isLoading()} onClose={handleLoadingClose}>
+      <Dialog open={isLoading()} onExited={handleLoadingClose}>
         <DialogContent id='loading-dialog'>
             <Typography>
               Waiting for confirmation from server that your email was sent...
@@ -253,8 +277,8 @@ const isLoading = () => {
       </Dialog>
 
       <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleSnackClose}>
-        <Alert onClose={handleSnackClose} severity="success">
-          Email sent successfully!
+        <Alert onClose={handleSnackClose} severity={snackSeverity}>
+          {snackMessage}
         </Alert>
       </Snackbar>
 

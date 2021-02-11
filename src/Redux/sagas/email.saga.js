@@ -24,21 +24,21 @@ function* sendEmail(action) {
 }
 
 
-function* confirmEmail(action) {
-  try {
+// function* confirmEmail(action) {
+//   try {
     
-    // do the thing here!
+//     // do the thing here!
 
-  } catch (error) {
+//   } catch (error) {
 
-    console.log('error in confirmEmail', error);
+//     console.log('error in confirmEmail', error);
 
-  }
-}
+//   }
+// }
 
 function* emailSaga() {
   yield takeLatest('SEND_EMAIL', sendEmail);
-  yield takeLatest('CONFIRM_EMAIL', confirmEmail);
+  // yield takeLatest('CONFIRM_EMAIL', confirmEmail);
 }
 
 export default emailSaga;
