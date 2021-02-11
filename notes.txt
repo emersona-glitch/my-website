@@ -1,6 +1,21 @@
 Notes for my Professional website
 ======
 
+Tasks
+======
+
+ContactMe.js
+  Our state hooks for the ContactMe component are messy,
+  Let's rename them and clean them up.
+
+
+We want our dial
+
+
+
+
+
+
 
 open email dialog -- check!
 

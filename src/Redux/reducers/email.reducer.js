@@ -1,4 +1,4 @@
-const confirmation = (state = 'waiting', action) => {
+const confirmation = (state = 'idle', action) => {
   switch (action.type) {
       case 'SET_CONFIRMATION':
         return action.payload
