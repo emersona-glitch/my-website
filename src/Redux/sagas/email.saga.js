@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { 
+  put,
   // put, 
   takeLatest
 } from 'redux-saga/effects';
@@ -11,13 +12,14 @@ function* sendEmail(action) {
     // what does put do?
     // console.log('sending an email', action.payload.name)
     
-    yield axios.post( '/api/email', action.payload )
+    let response = yield axios.post( '/api/email', action.payload );
+    
+    yield console.log(response);
 
-    // yield axios.post('/api/dojos', action.payload )
+    yield put({type: 'SET_CONFIRMATION', payload: response.status});
+
   } catch (error) {
-    
     console.log('error in sendEmail', error);
-    
   }
 }
 

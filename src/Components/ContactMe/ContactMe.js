@@ -15,13 +15,8 @@ import {
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert'
 
-// import EmailSuccess from './EmailSuccess';
-
-
-
 function ContactMe(props) {
   
-
   // to open our dialogue
   const [open, setOpen] = useState(false);
   
@@ -77,10 +72,10 @@ function ContactMe(props) {
 
       // commented out for testing
 
-      // props.dispatch({
-      //   type: 'SEND_EMAIL',
-      //   payload: contact
-      // })
+      props.dispatch({
+        type: 'SEND_EMAIL',
+        payload: contact
+      })
 
       setLoadingOpen(true);
       setContact({
@@ -91,6 +86,19 @@ function ContactMe(props) {
 
     }
   };
+
+
+// we now have the response.status of our email being sent stored in
+// a reducer at {props.store.confirm}.
+
+// by default, this is set to 'waiting' to indicate that nothing has
+// been sent
+
+// the loading bar should be open while this reducer is set to waiting
+// it should close and trigger a success or failure snackbar when
+// it gets sent to anything else.
+
+
 
   const handleSnackClose = () => {
     setSnackOpen(false);
@@ -126,7 +134,7 @@ function ContactMe(props) {
       <Button
       variant="contained"
       onClick={handleClickOpen}>
-        Contact Me :-|
+        Contact Me
       </Button>
 
       <Button
