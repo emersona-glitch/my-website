@@ -1,8 +1,5 @@
-import React from 'react';
-
-// import * as Scroll from 'react-scroll';
+import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-
 import './NavBar.css';
 import {
   AppBar,
@@ -12,14 +9,24 @@ import {
   Toolbar,
   useScrollTrigger,
   Fab,
+  Hidden,
+  Drawer,
+  // withWidth,
+  IconButton,
   // Icons,
-} from '@material-ui/core'
+} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { makeStyles } from '@material-ui/core/styles';
+
+// would like to better understand this...
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Zoom from '@material-ui/core/Zoom';
 // import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 // import MenuIcon from '@material-ui/icons/Menu';
 
+// ...and this...
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
@@ -28,10 +35,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// Scroll FAB
+const drawerWidth = 240;
+
+// BEGIN Scroll FAB
 function ScrollTop(props) {
   const { children, window } = props;
   const classes = useStyles();
+
+  // ...and how to nix this...
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.
@@ -57,8 +68,24 @@ function ScrollTop(props) {
     </Zoom>
   );
 }
+// END Scroll FAB
 
+
+
+// Navbar function
 function Nav(props) {
+
+  const theme = useTheme();
+  // hook for our drawer
+  const [open, setOpen] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className='NavBar'
@@ -66,59 +93,118 @@ function Nav(props) {
       <AppBar>
         <Toolbar>
 
-        <Link
-        to="about-me"
-        smooth={true}>
-          <Button>
-            About Me
-          </Button>
-        </Link>
-
-
-        <Link
-        to="portfolio"
-        smooth={true}>
-          <Button
-          >
-            Portfolio
-          </Button>
-        </Link>
-
-        <Link
-        to="links"
-        smooth={true}>
-          <Button>
-            Links
-          </Button>
-        </Link>
-
-        <Link
-        to="friends"
-        smooth={true}>
-          <Button>
-            Friends
-          </Button>
-        </Link>
-
-        <Link
-        to="gallery"
-        smooth={true}>
-          <Button>
-            Gallery
-          </Button>
-        </Link>
-
-        {/* <Button>
-          Contact
-        </Button> */}
-
-          {/* <IconButton>
+        {/* Hamburger Menu */}
+        <Hidden smUp>
+          <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              // className={clsx(classes.menuButton, open && classes.hide)}
+              >
             <MenuIcon />
-          </IconButton> */}
-{/*           
-          <Typography>
-            You are here:
-          </Typography> */}
+          </IconButton>
+          
+          <Drawer
+            variant="persistent"
+            anchor="left"
+            open={open}
+          >
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            </IconButton>
+            
+            <Link
+          to="about-me"
+          smooth={true}>
+            <Button>
+              About Me
+            </Button>
+          </Link>
+
+
+          <Link
+          to="portfolio"
+          smooth={true}>
+            <Button
+            >
+              Portfolio
+            </Button>
+          </Link>
+
+          <Link
+          to="links"
+          smooth={true}>
+            <Button>
+              Links
+            </Button>
+          </Link>
+
+          <Link
+          to="friends"
+          smooth={true}>
+            <Button>
+              Friends
+            </Button>
+          </Link>
+
+          <Link
+          to="gallery"
+          smooth={true}>
+            <Button>
+              Gallery
+            </Button>
+          </Link>
+
+          </Drawer> 
+        </Hidden>
+        {/* END Hamburger Menu */}
+
+        {/* Links */}
+        <Hidden xsDown>
+          <Link
+          to="about-me"
+          smooth={true}>
+            <Button>
+              About Me
+            </Button>
+          </Link>
+
+
+          <Link
+          to="portfolio"
+          smooth={true}>
+            <Button
+            >
+              Portfolio
+            </Button>
+          </Link>
+
+          <Link
+          to="links"
+          smooth={true}>
+            <Button>
+              Links
+            </Button>
+          </Link>
+
+          <Link
+          to="friends"
+          smooth={true}>
+            <Button>
+              Friends
+            </Button>
+          </Link>
+
+          <Link
+          to="gallery"
+          smooth={true}>
+            <Button>
+              Gallery
+            </Button>
+          </Link>
+        </Hidden>
+
 
         </Toolbar>
       </AppBar>
