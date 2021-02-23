@@ -5,11 +5,11 @@ import {
   Typography,
   Button,
 } from '@material-ui/core'
+import screenshot from './screenshot.png';
+
+
 
 function ProjectComponent(props) {
-
-
-
   // we want each of these guys to have:
   
   // a title
@@ -25,22 +25,23 @@ function ProjectComponent(props) {
     <Paper>
   
       {/* Title */}
-      <Typography>
-        Filler project {props.donkey}
+      <Typography
+      variant='h6'>
+        {props.title}
       </Typography>
 
       {/* Screenshot */}
-      <img/>
+      <img alt='project screenshot' id='screenshot' src={screenshot}/>
       
       {/* Description */}
       <Typography>
-        Filler project {props.donkey}
+        {props.description}
       </Typography>
 
       {/* View Repo button */}
-        <a href="www.google.com">
+        <a href='https://www.linkedin.com/in/emerson-aagaard/' target="_blank" rel="noreferrer">
       <Button>
-           Heh 
+           View Repository
       </Button>
            </a>
 

@@ -1,5 +1,8 @@
 import React from 'react';
 import './Friends.css';
+import {
+  Typography
+} from '@material-ui/core';
 
 function Friends() {
 
@@ -8,7 +11,14 @@ function Friends() {
     <div
     className='friends'
     name='friends'>
+      <Typography
+      variant='h4'>
+        Friends
+      </Typography>
+      <br/>
+      <Typography>
       Here are some friends of mine you might like to know about
+      </Typography>
     </div>
   );
 

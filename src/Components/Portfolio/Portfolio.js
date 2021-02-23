@@ -8,38 +8,19 @@ import {
 
 import ProjectComponent from '../ProjectComponent/ProjectComponent'
 
-function Filler() { 
-  return (
-    <div>
-<Paper>
-<Typography>
-  Filler project :-/
-</Typography>
-</Paper>
-</div>
-)}
-
 function Portfolio() {
 
 
   return (
     <div className='portfolio'
     name="portfolio">
-    <Typography>
-      Here are all the projects I've made!
+    <Typography
+    variant='h4'>
+      Portfolio
     </Typography>
-    
-    
-    {/* turn this into a component */}
-    <Paper>
-      <Typography>
-        Filler project :-/
-      </Typography>
-    </Paper>
+    <br/>
 
-    <Filler/>
-    <ProjectComponent donkey='myName'/>
-    <ProjectComponent donkey='yourName'/>
+    <ProjectComponent title='Example Project' description='this is an example project'/>
 
     </div>
   );

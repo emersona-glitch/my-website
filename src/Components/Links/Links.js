@@ -23,8 +23,13 @@ function Links() {
     name='links'>
         
         <Container>
+          <Typography
+          variant='h4'>
+            Links
+          </Typography>
+          <br/>
           <Typography>
-            Here are some links to other platforms that I'm present on
+            Here are some links to other places that I'm present on the internet.
           </Typography>
         </Container>
         <br/>

@@ -8,6 +8,15 @@ import {
   // Paper,
 } from '@material-ui/core';
 
+const copy = `
+  I'm a full stack developer currently looking for a role where I would be useful in the tech world!
+  Some of the technologies I'm skilled with include: React (which this webpage is built with!), Node and Express,
+  PostgreSQL, Java, Ruby, Python, and even a little jQuery! I have experince working with teams of Agile developers,
+  as well as experience working remotely. I really enjoy problem solving, both in my professional and personal
+  life, so much so that I decided on a career as a developer because it seemed like the funnest way to
+  spend all day solving problems!
+`;
+
 function AboutMe() {
 
 
@@ -15,6 +24,13 @@ function AboutMe() {
     <div 
     className='about-me'
     name='about-me'>
+      
+      <Typography
+      variant='h4'>
+        About Me!
+      </Typography>
+      
+      <br/>
 
       <Grid container>
 
@@ -28,7 +44,7 @@ function AboutMe() {
 
         <Grid item xs={8} sm={4}>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis imperdiet elit augue, et vehicula sapien vulputate nec. Curabitur tristique gravida elit, a porta ligula placerat non. Praesent interdum metus sed ultrices cursus. Curabitur vel facilisis purus. Nulla facilisi. Suspendisse sodales in felis at efficitur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent fringilla sem nec pellentesque faucibus. Nulla auctor fermentum ligula sit amet pulvinar. Maecenas efficitur nibh vulputate, ultrices lectus vel, lobortis ex. Morbi pretium nisl sed tortor venenatis, eget viverra urna ornare. Mauris consectetur vitae tellus ut gravida. 
+            {copy}
           </Typography>
         </Grid>
 
