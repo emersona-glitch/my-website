@@ -96,7 +96,7 @@ function Nav(props) {
         {/* Hamburger Menu */}
         <Hidden smUp>
           <IconButton
-              color="inherit"
+              color="secondary"
               aria-label="open drawer"
               onClick={handleDrawerOpen}
               edge="start"

@@ -40,7 +40,7 @@ function AboutMe() {
             <img id='selfie' alt="Me being handsome" src={selfie}/>
         </Grid>
         
-        <Grid item xs={1} sm={0}></Grid>
+        {/* <Grid item xs={1} sm={0}></Grid> */}
 
         <Grid item xs={8} sm={4}>
           <Typography>

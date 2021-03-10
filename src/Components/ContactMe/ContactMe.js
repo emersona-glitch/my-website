@@ -64,16 +64,8 @@ function ContactMe(props) {
       message: true
     });
   };
-
-
-  // tell the loading bar to open
-  // const handleClickLoading = () => {
-  //   setLoadingOpen(true);
-  // }
-
   
-  // Upon form completion and clicking send button
-  // do this!
+  // Upon form completion and clicking send button, do this! 
   const handleSend = () => {
 
     // check to see if all of the texts fields have been filled
@@ -115,7 +107,6 @@ function ContactMe(props) {
     }
   };
 
-
 // we now have the response.status of our email being sent stored in
 // a reducer at {props.store.confirm}.
 
@@ -125,21 +116,13 @@ function ContactMe(props) {
 // we want the dialog to be closed when this reducer is idle, 201, or 500
 // we want it to be open when its status is waiting.
 
-
 const isLoading = () => {
-  // if (props.store.confirm === 'waiting') {
-  //   return false;
-  // }
   return (props.store.confirm === 'waiting') 
 }
 
 // the loading bar should be open while this reducer is set to waiting
 // it should close and trigger a success or failure snackbar when
 // it gets sent anything else.
-
-
-
-
 
   // !!!
   // A lot of the following seems very redundant!
@@ -283,8 +266,6 @@ const isLoading = () => {
           {snackMessage}
         </Alert>
       </Snackbar>
-
-      {/* <EmailSuccess/> */}
 
     </div>
   )

@@ -14,27 +14,15 @@ function* sendEmail(action) {
     
     let response = yield axios.post( '/api/email', action.payload );
     
-    yield console.log(response);
-
-    yield put({type: 'SET_CONFIRMATION', payload: response.status});
-
+    yield console.log('Here is our response', response);
+    
+    yield put({type: 'SET_CONFIRMATION', payload: 201});
+    
   } catch (error) {
     console.log('error in sendEmail', error);
+    yield put({type: 'SET_CONFIRMATION', payload: 500});
   }
 }
-
-
-// function* confirmEmail(action) {
-//   try {
-    
-//     // do the thing here!
-
-//   } catch (error) {
-
-//     console.log('error in confirmEmail', error);
-
-//   }
-// }
 
 function* emailSaga() {
   yield takeLatest('SEND_EMAIL', sendEmail);
