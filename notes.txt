@@ -8,34 +8,7 @@ ContactMe.js
   Our state hooks for the ContactMe component are messy,
   Let's rename them and clean them up.
 
-
-Problem: We want the navbar to display as a horizontal list of links when the
-         screen-size is big enough for this to make sense, and otherwise to be
-         a hamburger menu.
-
-Tasks:   Build hamburger menu
-         conditional render (or similar)
-
-
-
-
-
-
-
-open email dialog -- check!
-
-make sure all fields are filled -- 
-
-trigger loading component
-
-wait for email confirmation
-
-trigger snackbar (one for confirmed, 
-                  one for not confirmed)
-
-
-
-
+componentize the titles you have for components
 
 
 

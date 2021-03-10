@@ -39,7 +39,7 @@ function ProjectComponent(props) {
       </Typography>
 
       {/* View Repo button */}
-        <a href='https://www.linkedin.com/in/emerson-aagaard/' target="_blank" rel="noreferrer">
+        <a href='https://github.com/emersona-glitch/my-website' target="_blank" rel="noreferrer">
       <Button>
            View Repository
       </Button>

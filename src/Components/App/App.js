@@ -43,8 +43,8 @@ function App() {
       <AboutMe />
       <Portfolio />
       <Links />
-      <Friends />
-      <Gallery />
+      {/* <Friends /> */}
+      {/* <Gallery /> */}
       <Footer />
 
       <ContactMe />

@@ -203,7 +203,9 @@ const isLoading = () => {
 
       <Button
       variant="contained"
-      onClick={handleClickOpen}>
+      onClick={handleClickOpen}
+      className="Contact-Button"
+      color="secondary">
         Contact Me
       </Button>
 

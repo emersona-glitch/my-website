@@ -91,7 +91,7 @@ function Nav(props) {
     <div className='NavBar'
     id="back-to-top-anchor">
       <AppBar>
-        <Toolbar>
+        <Toolbar className="ToolBar">
 
         {/* Hamburger Menu */}
         <Hidden smUp>
