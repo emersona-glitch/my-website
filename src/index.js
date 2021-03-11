@@ -56,7 +56,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 // in this conditional (using the ternary operator), we're just checking
 // to see if we're in development mode -- if we are, then we're going
-// to enable the logger as a part of
+// to enable the logger (which will console.log in our browser
+// when our reducers are changed / modified)
 const middlewareList = process.env.NODE_ENV === 'development' ?
   [sagaMiddleware, logger] :
   [sagaMiddleware];

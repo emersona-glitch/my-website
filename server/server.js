@@ -47,7 +47,8 @@ app.use(express.static('build'));
 // the .env property returns an object containing
 // the user environment, so we're saying
 // set PORT equal to whatever process.env.PORT
-// is (if it exists), or 5000 (if it doesn't).
+// is (if it exists, which it probably would when 
+// being deployed), or 5000 (if it doesn't).
 // (remember, js evaluates expressions from
 // left to right.)
 const PORT = process.env.PORT || 5000;

@@ -38,8 +38,10 @@ router.post('/', async (req, res) => {
       from_name: req.body.name,
       from_address: req.body.email,
       to:   myEmail,
-      text: req.body.message,
-      subject: `${req.body.name} would like to contact you`
+      text: `${req.body.message}. 
+      
+      Please respond at ${req.body.email}`,
+      subject: `${req.body.name} wants to get in touch.`
     })
     
     if (messageReturn.messageId) {
