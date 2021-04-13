@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
 
     const messageReturn = await transporter.sendMail({
       from_name: req.body.name,
-      from_address: req.body.email,
+      from_address: myEmail,
       to:   myEmail,
       text: `${req.body.message}. 
       
