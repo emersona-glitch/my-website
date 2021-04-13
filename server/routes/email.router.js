@@ -1,7 +1,10 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const auth = require('./Gmail_config/auth.config');
-const myEmail = require('./Gmail_config/my.secret.email');
+require('dotenv').config();
+// const myEmail = require('./Gmail_config/my.secret.email');
+const myEmail = process.env.SECRET_EMAIL
+
 
 // sets up an instance of express
 const router = express.Router()
@@ -52,7 +55,7 @@ router.post('/', async (req, res) => {
     }
 
   } catch (error) {
-    console.log('Oh boy we got an error: ', error);
+    console.log('Oh boy we got an error: ', error, myEmail);
     res.sendStatus(500);
   }
   
