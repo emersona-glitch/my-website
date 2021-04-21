@@ -57,6 +57,7 @@ function ContactMe(props) {
   
   // tell the contact dialog to open
   const handleClickOpen = () => {
+    console.log('hi mom!');
     setOpen(true);
     setComplete({
       name: true,

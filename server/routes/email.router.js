@@ -32,7 +32,6 @@ const transporter = nodemailer.createTransport({
 // we use the post method to post data to an endpoint
 // which in this case, will be the gmail
 // api, accessed via nodemailer.
-
 router.post('/', async (req, res) => {
 
   try {

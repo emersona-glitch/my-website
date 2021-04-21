@@ -1,44 +1,7 @@
-Notes for my Professional website
-======
-
-Tasks
-======
-
-ContactMe.js
-  Our state hooks for the ContactMe component are messy,
-  Let's rename them and clean them up.
-
-componentize the titles you have for components
-
-
-
-QUESTIONS
-
-what even is a reducer?
-======
-A reducer is a function used to manage state across multiple react-components
-In order to [fw a reducer] you need to dispatch an action, which has a data 
-payload (a string, a number, an object, &c.), and an action description (to 
-uniquely identify it.)
-
-what even is a saga
-======
-saga is a thread in our react-app that is intended to deal solely w/ side-
-effects.
-
-a function has a side effect if it changes some state variable outside of the
-functions local environment, or rather that the function has an observable
-effect outside of returning a value to what invoked the function.
-e.g.
-modifying a non-local variable
-modifying a mutable argument passed by reference (??)
-
-saga is a middleware tool within redux that can be called from any components
-we make it available to, which allows us to dispatch redux actions, 
-
-what even is axios / AJAX?
-======
-
+Refresh token seems to be expiring. Google has this to say about it:
+  Note: The OAuth Playground will automatically revoke refresh tokens after 24h. 
+  You can avoid this by specifying your own application OAuth credentials using 
+  the Configuration panel.
 
 
 
